@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "www/server.js",
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },
