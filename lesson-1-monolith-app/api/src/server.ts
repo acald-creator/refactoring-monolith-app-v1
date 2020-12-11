@@ -1,26 +1,34 @@
+import { sequelize } from './sequelize'
+import { IndexRouter } from './controllers/v0/index.router'
+import { V0MODELS } from './controllers/v0/model.index'
+
 const Koa = require('koa')
-const app = new Koa()
+const bodyParser = require('koa-bodyparser')
+const cors = require('@koa/cors')
 
-// logger
-app.use(async (ctx, next) => {
-  await next()
+(async () => {
+  await sequelize.addModels(V0MODELS)
+  await sequelize.sync()
 
-  const rt = ctx.response.get('X-Response-Time')
-  console.log(`${ctx.method} ${ctx.url} - ${rt}`)
-})
+  const app = new Koa()
+  const port = process.env.PORT || 8080
 
-// x-response-time
-app.use(async (ctx, next) => {
-  const start = Date.now()
-  await next()
+  app.use(cors())
 
-  const ms = Date.now() - start
-  ctx.set('X-Response-Time', `${ms}ms`)
-})
+  app.use(bodyParser({
+    detectJSON: function (ctx) {
+      return /\.json$/i.test(ctx.path)
+    }
+  }))
 
-// response
-app.use(async (ctx) => {
-  ctx.body = 'Hello world'
-})
+  app.use('/api/v0', IndexRouter)
 
-app.listen(3000);
+  app.use('/', async (ctx, next) => {
+    next('/api/v0')
+  })
+
+  app.listen(port, () => {
+    console.log(`server running http://localhost:${port}`)
+    console.log('press CTL+C to stop server')
+  })
+})()
