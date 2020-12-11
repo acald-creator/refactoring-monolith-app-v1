@@ -10,8 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/router": "^10.0.0",
+    "@types/validator": "^13.1.1",
     "express": "^4.17.1",
-    "koa": "^2.13.0"
+    "koa": "^2.13.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^5.1.0",
+    "sequelize-typescript": "^1.1.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.33",
