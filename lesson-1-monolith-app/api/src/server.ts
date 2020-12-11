@@ -1,7 +1,7 @@
 const http = require('http')
 const https = require('https')
-const Koa = require("koa");
-const app = new Koa();
+const Koa = require('koa')
+const app = new Koa()
 
 // logger
 app.use(async (ctx, next) => {
@@ -22,8 +22,8 @@ app.use(async (ctx, next) => {
 
 // response
 app.use(async (ctx) => {
-  ctx.body = "Hello world";
-});
+  ctx.body = 'Hello world'
+})
 
 // app.listen(3000);
 http.createServer(app.callback()).listen(3000)
