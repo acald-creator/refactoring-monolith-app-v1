@@ -3,8 +3,8 @@ import * as AWS from '../../aws'
 
 const Router = require('@koa/router')
 // Nested the routers together
-const feed = new Router()
-const users = new Router()
+// const feed = new Router()
+// const users = new Router()
 // const router = new Router()
 const router: typeof Router = Router()
 // Retrieve all items
@@ -33,8 +33,8 @@ router.patch('/:id', async (ctx, next) => {
 // @TODO Setup the last section to use auth and signed url
 
 // @TODO
-feed.user('/feed')
+// feed.user('/feed')
 // @TODO
-users.user('/users')
+// users.user('/users')
 
 export const IndexRouter: typeof Router = router
