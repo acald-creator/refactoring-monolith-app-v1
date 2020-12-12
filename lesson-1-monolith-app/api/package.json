@@ -4,7 +4,8 @@
   "description": "",
   "main": "www/server.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts"
   },
   "keywords": [],
   "author": "",
