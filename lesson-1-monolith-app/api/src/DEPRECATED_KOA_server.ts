@@ -4,16 +4,16 @@ import { V0MODELS } from './controllers/v0/model.index'
 
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
-const cors = require('@koa/cors')
+// const cors = require('@koa/cors')
 
-(async () => {
+(async() => {
   await sequelize.addModels(V0MODELS)
   await sequelize.sync()
 
   const app = new Koa()
   const port = process.env.PORT || 8080
 
-  app.use(cors())
+//  app.use(cors())
 
   app.use(bodyParser({
     detectJSON: function (ctx) {
