@@ -14,9 +14,11 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+        "prettier/prettier": "error",
         "no-unused-vars": "off",
         "array-callback-return": "off"
     }
