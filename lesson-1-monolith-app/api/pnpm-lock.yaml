@@ -4,6 +4,7 @@ dependencies:
   '@koa/router': 10.0.0
   '@types/validator': 13.1.1
   aws-sdk: 2.808.0
+  dotenv: 8.2.0
   express: 4.17.1
   koa: 2.13.0
   koa-bodyparser: 4.3.0
@@ -1108,6 +1109,12 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
+  /dotenv/8.2.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   /dottie/2.0.2:
     dev: false
     resolution:
@@ -3703,6 +3710,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.9.1
   '@typescript-eslint/parser': ^4.9.1
   aws-sdk: ^2.808.0
+  dotenv: ^8.2.0
   eslint: ^7.15.0
   eslint-config-standard: ^16.0.2
   eslint-plugin-import: ^2.22.1
