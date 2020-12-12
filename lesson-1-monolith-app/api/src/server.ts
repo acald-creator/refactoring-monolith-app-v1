@@ -21,7 +21,7 @@ const init = async () => {
     method: "GET",
     path: "/",
     handler: (request, h) => {
-      h.send("/api/v0");
+      return "/api/v0"
     },
   });
 
