@@ -1,7 +1,7 @@
-import express, { sequelize } from 'express'
+import express from 'express'
 
-import { IndexRouter } from './controllers/v0/index.router'
-import { V0MODELS } from './controllers/v0/model.index'
+import { IndexRouter } from '../controllers/v0/index.router'
+import { V0MODELS } from '../controllers/v0/model.index'
 
 import bodyParser from 'body-parser'
 
