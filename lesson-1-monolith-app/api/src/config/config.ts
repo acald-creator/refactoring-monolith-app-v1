@@ -4,20 +4,20 @@ export const config = {
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
     host: process.env.POSTGRES_HOST,
-    dialect: 'postgres',
+    dialect: "postgres",
     aws_region: process.env.AWS_REGION,
     aws_profile: process.env.AWS_PROFILE,
     aws_media_bucket: process.env.AWS_BUCKET,
-    aws_secret_name: process.env.AWS_SECRET_NAME
+    aws_secret_name: process.env.AWS_SECRET_NAME,
   },
   prod: {
-    username: '',
-    password: '',
-    database: '',
-    host: '',
-    dialect: 'postgres'
+    username: "",
+    password: "",
+    database: "",
+    host: "",
+    dialect: "postgres",
   },
   jwt: {
-    secret: process.env.JWT_SECRET
-  }
-}
+    secret: process.env.JWT_SECRET,
+  },
+};
