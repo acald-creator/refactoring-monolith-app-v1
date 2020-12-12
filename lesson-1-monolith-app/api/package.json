@@ -5,7 +5,13 @@
   "main": "www/server.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts"
+    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore src/*.ts --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
+    }
   },
   "keywords": [],
   "author": "",
@@ -35,6 +41,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.3.5",
     "ts-node-dev": "^1.1.1",
     "typescript": "^4.1.2"
   }
