@@ -2,9 +2,10 @@ import Hapi from "@hapi/hapi";
 import { sequelize } from "./sequelize";
 import { V0MODELS } from "./controllers/v0/model.index";
 
+/*
 const dotenv = require("dotenv");
-
 dotenv.config();
+*/
 
 const init = async () => {
   await sequelize.addModels(V0MODELS);
@@ -21,7 +22,7 @@ const init = async () => {
     method: "GET",
     path: "/",
     handler: (request, h) => {
-      return "/api/v0"
+      return "/api/v0";
     },
   });
 
