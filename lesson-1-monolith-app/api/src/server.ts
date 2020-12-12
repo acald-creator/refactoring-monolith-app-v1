@@ -7,15 +7,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const init = async () => {
-  await sequelize
-    .authenticate()
-    .then(() => {
-      console.log("Success!");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
   await sequelize.addModels(V0MODELS);
   await sequelize.sync();
 
