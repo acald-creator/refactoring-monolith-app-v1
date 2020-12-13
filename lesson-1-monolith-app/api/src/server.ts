@@ -26,9 +26,7 @@ const init = async () => {
           "Accept",
           "Authorization",
         ],
-        additionalHeaders: [
-          "X-Requested-With"
-        ]
+        additionalHeaders: ["X-Requested-With"],
       },
     },
   });
