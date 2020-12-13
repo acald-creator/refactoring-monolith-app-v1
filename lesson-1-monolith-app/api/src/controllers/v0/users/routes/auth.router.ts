@@ -5,6 +5,8 @@ import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";
 import { NextFunction } from "connect";
 
+const router: Router = Router();
+
 /* Generate the password */
 async function generatePassword(plainTextPassword: string): Promise<string> {
   const saltRounds = 10;
@@ -39,14 +41,22 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
     });
   }
 
-  const token = tokenBearer[1]
+  const token = tokenBearer[1];
   return jwt.verify(token, c.config.jwt.secret, (err, decoded) => {
-      if(err) {
-          return res.status(500).send({
-              auth: false,
-              message: 'Failed to authenticate'
-          })
-      }
-      return next()
-  })
+    if (err) {
+      return res.status(500).send({
+        auth: false,
+        message: "Failed to authenticate",
+      });
+    }
+    return next();
+  });
 }
+
+/* Configure the routing */
+router.get('/verification', requireAuth, async(req: Request, res: Response) => {
+    return res.status(200).send({
+        auth: true,
+        message: 'Authenticated'
+    })
+})
