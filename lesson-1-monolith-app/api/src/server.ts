@@ -20,9 +20,16 @@ const init = async () => {
     routes: {
       cors: {
         origin: ["Access-Control-Allow-Origin", "http://localhost:8100"],
-        headers: ["Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
-      }
-    }
+        headers: [
+          "Access-Control-Allow-Headers",
+          "Origin",
+          "X-Requested-With",
+          "Content-Type",
+          "Accept",
+          "Authorization",
+        ],
+      },
+    },
   });
 
   server.route([
