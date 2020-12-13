@@ -1,4 +1,3 @@
-import { FeedItem } from "./feed/models/FeedItem";
 import { FeedRouter } from "./feed/routes/feed.router";
 
 // router.use('/user', UserRouter)
