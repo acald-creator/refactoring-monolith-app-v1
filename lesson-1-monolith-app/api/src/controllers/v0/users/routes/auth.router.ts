@@ -1,6 +1,8 @@
 import { Router, Request, Response } from "express";
 import { User } from "../models/Users";
+import * as c from "../../../../config/config";
 import * as bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
 import { NextFunction } from "connect";
 
 /* Generate the password */
@@ -18,6 +20,10 @@ async function comparePasswords(
 }
 
 /* Generate the JWT token */
+function generateJWT(user: User): string {
+  console.log("generateJWT");
+  return jwt.sign(user.short(), c.config.jwt.secret);
+}
 
 /* Authorize the user */
 export function requireAuth(req: Request, res: Response, next: NextFunction) {
@@ -32,4 +38,15 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
       message: "Malformed token",
     });
   }
+
+  const token = tokenBearer[1]
+  return jwt.verify(token, c.config.jwt.secret, (err, decoded) => {
+      if(err) {
+          return res.status(500).send({
+              auth: false,
+              message: 'Failed to authenticate'
+          })
+      }
+      return next()
+  })
 }
