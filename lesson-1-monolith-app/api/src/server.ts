@@ -1,6 +1,7 @@
 import Hapi from "@hapi/hapi";
 import { sequelize } from "./sequelize";
 import { V0MODELS } from "./controllers/v0/model.index";
+import { IndexRouter } from "./controllers/v0/index.router";
 
 /*
 const dotenv = require("dotenv");
@@ -18,13 +19,22 @@ const init = async () => {
     host: hostname,
   });
 
-  server.route({
-    method: "GET",
-    path: "/",
-    handler: (request, h) => {
-      return "/api/v0";
+  server.route([
+    {
+      method: "GET",
+      path: "/api/v0",
+      handler: (request, h) => {
+        return IndexRouter;
+      },
     },
-  });
+    {
+      method: "GET",
+      path: "/",
+      handler: (request, h) => {
+        return "/api/v0";
+      },
+    },
+  ]);
 
   await server.start();
   console.log("Server running on %s", server.info.uri);

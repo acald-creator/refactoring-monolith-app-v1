@@ -1,40 +1,20 @@
 import { FeedItem } from "./feed/models/FeedItem";
-import * as AWS from "../../aws";
+import { FeedRouter } from "./feed/routes/feed.router";
 
-const Router = require("@koa/router");
-// Nested the routers together
-// const feed = new Router()
-// const users = new Router()
-// const router = new Router()
-const router: typeof Router = Router();
-// Retrieve all items
-router.get("/", async (ctx, next) => {
-  const items = await FeedItem.findAndCountAll({
-    order: [["id", "DESC"]],
-  });
-  items.rows.map((item) => {
-    if (item.url) {
-      item.url = AWS.getGetSignedUrl(item.url); // setup the aws config file @TODO
-    }
-  });
-  next(items);
-});
-// Retrieve a specific source
-router.get("/:id", async (ctx, next) => {
-  const { id } = ctx.params;
-  const item = await FeedItem.findByPk(id);
-  next(item);
-});
-// Update a specific resource
-router.patch("/:id", async (ctx, next) => {
-  // @TODO Finish this section
-  next();
-});
-// @TODO Setup the last section to use auth and signed url
+// router.use('/user', UserRouter)
 
-// @TODO
-// feed.user('/feed')
-// @TODO
-// users.user('/users')
+export function IndexRouter() {
+  const Call = require("@hapi/call");
 
-export const IndexRouter: typeof Router = router;
+  const router = new Call.Router();
+
+  router.use("/feed", FeedRouter);
+
+  router.add(
+    {
+      method: "GET",
+      path: "/",
+    },
+    `V0`
+  );
+}
