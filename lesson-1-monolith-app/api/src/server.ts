@@ -17,6 +17,12 @@ const init = async () => {
   const server = Hapi.server({
     port: process.env.PORT || 8080,
     host: hostname,
+    routes: {
+      cors: {
+        origin: ["Access-Control-Allow-Origin", "http://localhost:8100"],
+        headers: ["Access-Control-Allow-Headers", "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization"]
+      }
+    }
   });
 
   server.route([
