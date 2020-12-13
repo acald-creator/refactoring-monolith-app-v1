@@ -23,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/call": "^8.0.1",
     "@hapi/hapi": "^20.0.3",
     "@koa/cors": "^3.1.0",
     "@koa/router": "^10.0.0",
