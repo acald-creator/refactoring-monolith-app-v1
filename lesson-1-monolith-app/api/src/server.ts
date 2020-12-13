@@ -22,12 +22,13 @@ const init = async () => {
         origin: ["Access-Control-Allow-Origin", "http://localhost:8100"],
         headers: [
           "Access-Control-Allow-Headers",
-          "Origin",
-          "X-Requested-With",
           "Content-Type",
           "Accept",
           "Authorization",
         ],
+        additionalHeaders: [
+          "X-Requested-With"
+        ]
       },
     },
   });
@@ -35,16 +36,16 @@ const init = async () => {
   server.route([
     {
       method: "GET",
-      path: "/api/v0",
+      path: "/",
       handler: (request, h) => {
-        return IndexRouter;
+        return h.response("/api/v0");
       },
     },
     {
       method: "GET",
-      path: "/",
+      path: "/api/v0",
       handler: (request, h) => {
-        return "/api/v0";
+        return h.response(IndexRouter);
       },
     },
   ]);
