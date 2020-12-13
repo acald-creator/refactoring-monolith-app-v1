@@ -1,12 +1,14 @@
-var express = require('express')
+import App from './app'
 
-var app = express()
-var port = 3000
+import * as bodyParser from 'body-parser'
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+const app = new App({
+    port: 8080,
+    controllers: [
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://loclahost:${port}`)
+    ],
+    middleWares: [
+        bodyParser.json(),
+        bodyParser.urlencoded({ extended: true })
+    ]
 })
