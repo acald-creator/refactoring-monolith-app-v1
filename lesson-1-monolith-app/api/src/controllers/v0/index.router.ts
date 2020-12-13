@@ -1,6 +1,6 @@
 import { FeedRouter } from "./feed/routes/feed.router";
+import { UserRouter } from "./users/routes/user.router";
 
-// router.use('/user', UserRouter)
 
 export function IndexRouter() {
   const Call = require("@hapi/call");
@@ -8,12 +8,15 @@ export function IndexRouter() {
   const router = new Call.Router();
 
   router.use("/feed", FeedRouter);
+  router.use('/user', UserRouter);
 
   router.add(
     {
       method: "GET",
       path: "/",
-    },
-    `V0`
+      handler: async (request, h) => {
+        return `V0`
+      }
+    }
   );
 }
