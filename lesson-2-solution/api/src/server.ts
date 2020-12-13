@@ -1,6 +1,7 @@
 import App from './app'
 
 import * as bodyParser from 'body-parser'
+import loggerMiddleware from './middlewares/logger'
 
 const app = new App({
     port: 8080,
@@ -9,6 +10,7 @@ const app = new App({
     ],
     middleWares: [
         bodyParser.json(),
-        bodyParser.urlencoded({ extended: true })
+        bodyParser.urlencoded({ extended: true }),
+        loggerMiddleware
     ]
 })
