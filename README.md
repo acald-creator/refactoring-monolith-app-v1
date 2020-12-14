@@ -12,6 +12,6 @@ Here are the following tasks that needs to be completed below.
 
 ### Task 3 - Update the Backend Endpoint
 
-### Task 4 - Start the backend NPM server
+### Task 4 - Start the backend NPM FASTIFY_server
 
-### Task 5 - Start the frontend server
+### Task 5 - Start the frontend FASTIFY_server
