@@ -4,9 +4,10 @@
   "description": "Basic Image Filtering via REST API",
   "main": "index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "prepublish": "pnpm run build",
-    "start": "node www/server.js"
+    "build": "pnpm tsc",
+    "tsc": "tsc --project tsconfig.json",
+    "tsc:w": "tsc --project tsconfig.json -w",
+    "start": "nodemon --watch \"src/**/*.ts\" --ignore \"node_modules/**/*\" --exec ts-node-dev src/server.ts"
   },
   "type": "module",
   "keywords": [],
