@@ -1,0 +1,15 @@
+{
+  "name": "lesson-0-starter-app",
+  "version": "1.0.0",
+  "description": "Basic Image Filtering via REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [],
+  "author": "Antonette Caldwell",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^3.9.1"
+  }
+}
