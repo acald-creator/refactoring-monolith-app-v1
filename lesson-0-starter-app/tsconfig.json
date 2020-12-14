@@ -79,7 +79,6 @@
   "exclude": [
     "./node_modules",
     "./www",
-    "./src/test",
-    "./src/ignore"
+    "./src/test"
   ]
 }
