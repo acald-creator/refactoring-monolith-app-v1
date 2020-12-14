@@ -1,10 +1,16 @@
 import App from './app'
-
 import * as bodyParser from 'body-parser'
-import loggerMiddleware from './middlewares/logger'
+import { sequelize } from "./config/sequelize";
+import { V0MODELS } from "./controllers/model.index";
 import AuthController from "./controllers/auth/auth.controller";
 import UsersController from "./controllers/users/users.controller";
 import FeedController from "./controllers/feed/feed.controller";
+import loggerMiddleware from './middlewares/logger'
+
+async () => {
+    await sequelize.addModels(V0MODELS)
+    await sequelize.sync()
+}
 
 const app = new App({
     port: 8080,
@@ -15,7 +21,7 @@ const app = new App({
     ],
     middleWares: [
         bodyParser.json(),
-        bodyParser.urlencoded({ extended: true }),
+        bodyParser.urlencoded({extended: true}),
         loggerMiddleware
     ]
 })
