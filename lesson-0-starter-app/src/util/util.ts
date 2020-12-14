@@ -1,7 +1,7 @@
-const fs = require('fs')
-const Jimp = require('jimp')
+import fs from 'fs'
+import Jimp = require('jimp')
 
-async function filterImageFromURL(inputUrl: string): Promise<string> {
+export async function filterImageFromURL(inputUrl: string): Promise<string> {
     return new Promise(async resolve => {
         const photo = await Jimp.read(inputUrl)
         const outpath = '/tmp/filtered.'+Math.floor(Math.random() * 2000)+'.jpg'
@@ -10,14 +10,8 @@ async function filterImageFromURL(inputUrl: string): Promise<string> {
     })
 }
 
-async function deletedLocalFiles(files: Array<string>) {
+export async function deleteLocalFiles(files: Array<string>) {
     for ( let file of files) {
         fs.unlinkSync(file)
     }
-}
-
-export class filterImageFromUrl {
-}
-
-export class deletedLocalFiles {
 }
