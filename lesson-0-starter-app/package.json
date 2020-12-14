@@ -4,9 +4,9 @@
   "description": "Basic Image Filtering via REST API",
   "main": "index.js",
   "scripts": {
-    "build": "flow-remove-types src/ -d lib",
+    "build": "tsc -p tsconfig.json",
     "prepublish": "pnpm run build",
-    "lint": "flow"
+    "start": "node www/server.js"
   },
   "keywords": [],
   "author": "Antonette Caldwell",
@@ -20,8 +20,6 @@
   },
   "devDependencies": {
     "@types/node": "^14.14.13",
-    "flow-bin": "^0.140.0",
-    "flow-remove-types": "^2.140.0",
     "ts-node-dev": "^1.1.1"
   }
 }
