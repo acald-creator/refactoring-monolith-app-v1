@@ -2,9 +2,7 @@ const fastify = require('fastify')({
     logger: true
 })
 
-fastify.get('/', function(request, reply) {
-    reply.send({ hello: 'world'})
-})
+fastify.register(require('./filtered-image.js'))
 
 fastify.listen(3000, function (err, address) {
     if (err) {
