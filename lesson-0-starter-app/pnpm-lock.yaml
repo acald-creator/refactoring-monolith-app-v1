@@ -3,6 +3,9 @@ dependencies:
   express: 4.17.1
   fastify: 3.9.1
   jimp: 0.16.1
+devDependencies:
+  flow-bin: 0.140.0
+  flow-remove-types: 2.140.0
 lockfileVersion: 5.2
 packages:
   /@babel/runtime/7.12.5:
@@ -712,6 +715,30 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4zPxDyhCyiN2wIAtSLI6gc82/EjqZc1onI4Mz/l0pWrAlsSfYH/2ZIcU+e3oA2wDwbzIWNKwa23F8rh6+DRWkw==
+  /flow-bin/0.140.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    hasBin: true
+    resolution:
+      integrity: sha512-9P/VciKACXocClhLiDg/p1ntYmgCEEc9QrNOoTqTi2SEdEZDTiAmJLONRJfw4uglPVRZ1p/esWF9KlbZiuxqVw==
+  /flow-parser/0.140.0:
+    dev: true
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha512-z57YJZXcO0mmlNoOf9uvdnoZXanu8ALTqSaAWAv6kQavpnA5Kpdd4R7B3wP56+/yi/yODjrtarQYV/bgv867Iw==
+  /flow-remove-types/2.140.0:
+    dependencies:
+      flow-parser: 0.140.0
+      pirates: 3.0.2
+      vlq: 0.2.3
+    dev: true
+    engines:
+      node: '>=4'
+    hasBin: true
+    resolution:
+      integrity: sha512-qxYbyvMjvWMk7DBIsSr+FHKZh2v0NgNxYfQLEYlQgsBwj7MGiaOcflcpEEJiUp5uXC+clGqPqnQD35oOkBDhKg==
   /forwarded/0.1.2:
     dev: false
     engines:
@@ -919,6 +946,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
+  /node-modules-regexp/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
   /omggif/1.0.10:
     dev: false
     resolution:
@@ -984,6 +1017,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-nxq+6Jr7m0cMjYFBoTRw3bco14omZ/SQCheAHz9GVwdkbUrzKhgT+gSI/ql2Mnsca0QQKgpB/ACWhjxE4JsX3Q==
+  /pirates/3.0.2:
+    dependencies:
+      node-modules-regexp: 1.0.0
+    dev: true
+    engines:
+      node: '>= 4'
+    resolution:
+      integrity: sha512-c5CgUJq6H2k6MJz72Ak1F5sN9n9wlSlJyEnwvpm9/y3WB4E3pHBDT2c6PEiS1vyJvq2bUxUAIu0EGf8Cx4Ic7Q==
   /pixelmatch/4.0.2:
     dependencies:
       pngjs: 3.4.0
@@ -1244,6 +1285,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+  /vlq/0.2.3:
+    dev: true
+    resolution:
+      integrity: sha512-DRibZL6DsNhIgYQ+wNdWDL2SL3bKPlVrRiBqV5yuMm++op8W4kGFtaQfCs4KEJn0wBZcHVHJ3eoywX8983k1ow==
   /xhr/2.6.0:
     dependencies:
       global: 4.4.0
@@ -1286,4 +1331,6 @@ specifiers:
   body-parser: ^1.19.0
   express: ^4.17.1
   fastify: ^3.9.1
+  flow-bin: ^0.140.0
+  flow-remove-types: ^2.140.0
   jimp: ^0.16.1
