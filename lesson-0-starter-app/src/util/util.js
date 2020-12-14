@@ -5,7 +5,7 @@ async function filterImageFromURL(inputUrl: string): Promise<string> {
     return new Promise(async resolve => {
         const photo = await Jimp.read(inputUrl)
         const outpath = '/tmp/filtered.'+Math.floor(Math.random() * 2000)+'.jpg'
-        await photo.resize().quality(60).grayscale().write(__dirname+outpath, (img)=>{ resolve(__dirname+outpath)
+        await photo.resize(256, 256).quality(60).grayscale().write(__dirname+outpath, (img)=>{ resolve(__dirname+outpath)
         })
     })
 }
