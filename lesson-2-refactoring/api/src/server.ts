@@ -5,7 +5,7 @@ import { V0MODELS } from "./controllers/model.index";
 import AuthController from "./controllers/auth/auth.controller";
 import UsersController from "./controllers/users/users.controller";
 import FeedController from "./controllers/feed/feed.controller";
-import loggerMiddleware from './middlewares/logger'
+import loggerMiddleware from './middlewares/loggerMiddleware'
 
 async () => {
     await sequelize.addModels(V0MODELS)
