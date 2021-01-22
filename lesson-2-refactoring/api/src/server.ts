@@ -3,8 +3,8 @@ import * as bodyParser from 'body-parser'
 import { sequelize } from "./config/sequelize";
 import { V0MODELS } from "./controllers/model.index";
 import AuthController from "./controllers/auth/auth.controller";
-import UsersController from "./controllers/users/users.controller";
-import FeedController from "./controllers/feed/feed.controller";
+import UsersController from "./controllers/users/UsersController";
+import FeedController from "./controllers/feed/FeedController";
 import loggerMiddleware from './middlewares/loggerMiddleware'
 
 async () => {
