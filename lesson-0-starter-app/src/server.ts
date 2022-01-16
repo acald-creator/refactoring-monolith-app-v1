@@ -1,32 +1,32 @@
-import express from "express";
-import bodyParser from "body-parser";
-import { deleteLocalFiles, filterImageFromURL } from "./util/util";
-const app = express()
+import express, { Application, Request, Response } from 'express'
+import bodyParser from "body-parser"
+import { deleteLocalFiles, filterImageFromURL } from "./util/util"
 
-const port = process.env.PORT || 8082
+(async () => {
+    const app: Application = express()
+    const port = process.env.PORT || 8082
 
-app.use(bodyParser.json())
+    app.use(express.urlencoded({ extended: true }))
+    app.use(express.json())
 
-app.get('/', async (req, res) => {
-    res.send('Try "GET" /filteredimage?image={{}}')
-})
+    app.get('/', async (req: Request, res: Response) => {
+        res.send(`Try 'GET' /filteredimage?image={{}}`)
+    })
 
-app.get('/filteredimage', async(request, reply) => {
-    let { imageURL } = request.query
-    if (!imageURL) {
-        return reply.status(400).send(`Invalid url or No url provided`)
-    }
+    app.get('/filteredimage', async (req: Request, res: Response) => {
+        let { image_url } = req.query as any
+        if (!image_url) {
+            return res.status(400).send(`Invalid URL or no image URL provided`)
+        }
 
-    // @ts-ignore
-    filterImageFromURL(imageURL).then(filteredPath => {
-        reply.status(200).sendFile(filteredPath, () => {
-            // @ts-ignore
-            return deleteLocalFiles(filteredPath)
+        filterImageFromURL(image_url).then(filteredpath => {
+            res.status(200).sendFile(filteredpath)
         })
     })
-})
 
-app.listen(port, () => {
-    console.log(`server running http://localhost:${port}`)
-    console.log(`press CTRL+C to stop the server`)
-})
+    app.listen(port, () => {
+        console.log(`server running http://localhost:${port}`)
+        console.log(`press CTRL+C to stop the server`)
+    })
+
+})()
